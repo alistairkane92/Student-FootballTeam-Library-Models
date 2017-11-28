@@ -1,6 +1,6 @@
 class SpursTeam
 
-    def initialize(team_name, players, coach, points)
+    def initialize(team_name, players, coach)
         @team_name = team_name
         @players = players
         @coach = coach
@@ -11,7 +11,7 @@ class SpursTeam
             return @team_name
         end
 
-        def player_names
+        def players
             return @players
         end
 
@@ -20,27 +20,27 @@ class SpursTeam
         end
 
         def update_coach(new_coach)
-            return @coach = (new_coach)
+            @coach = new_coach
         end
 
-        def new_player(name, players)
-            return @players << name
+        def new_player(player)
+            return @players << player
         end
 
-        def find_player(name, players)
+        def find_player(name)
             for player in @players
                 if player == name
                     return true
                 end
             end
+            return false
         end
 
         def points
             return @points
         end
 
-
-        def add_or_remove_points(value, result)
-            @points += value if result == true
+        def add_win_points(result)
+            return @points += 3 if result == true
         end
 end

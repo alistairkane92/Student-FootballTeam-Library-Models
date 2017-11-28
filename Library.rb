@@ -1,23 +1,22 @@
 class Library
 
-    def initialize(library)
-        @library = library
+    def initialize(books)
+        @books = books
     end
 
     def list_books
-        return @library
+        return @books
     end
 
     def find_book(name)
-        for book in @library
-            if book[:title] == name
-                return book
-            end
+        for book in @books
+            return book if book[:title] == name
         end
+        return nil
     end
 
     def rental_details(name)
-        for book in @library
+        for book in @books
             if book[:title] == name
                 return book[:rental_details]
             end
